@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
@@ -37,19 +38,21 @@ public class Lugares extends javax.swing.JFrame {
         j_distancia = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         j_numero = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        cb_entrada = new javax.swing.JComboBox();
         jButton7 = new javax.swing.JButton();
-        jLabel17 = new javax.swing.JLabel();
-        cb_salida = new javax.swing.JComboBox();
         j_volver = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        JList = new javax.swing.JDialog();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        j_list = new javax.swing.JList();
+        jLabel16 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        Eliminar = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         cd_lugar = new javax.swing.JComboBox<String>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tb_list = new javax.swing.JTable();
         jButton9 = new javax.swing.JButton();
@@ -112,28 +115,10 @@ public class Lugares extends javax.swing.JFrame {
 
         jLabel15.setText("Numero");
 
-        jLabel16.setText("Entrada");
-
-        cb_entrada.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cb_entrada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb_entradaActionPerformed(evt);
-            }
-        });
-
         jButton7.setText("Agregar");
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton7MouseClicked(evt);
-            }
-        });
-
-        jLabel17.setText("Salida");
-
-        cb_salida.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cb_salida.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb_salidaActionPerformed(evt);
             }
         });
 
@@ -144,7 +129,7 @@ public class Lugares extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("Cargar");
+        jButton8.setText("Listar");
         jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton8MouseClicked(evt);
@@ -156,41 +141,26 @@ public class Lugares extends javax.swing.JFrame {
         CarreterasLayout.setHorizontalGroup(
             CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CarreterasLayout.createSequentialGroup()
-                .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton7)
-                    .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(CarreterasLayout.createSequentialGroup()
-                            .addGap(317, 317, 317)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(CarreterasLayout.createSequentialGroup()
-                            .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(CarreterasLayout.createSequentialGroup()
-                                    .addGap(201, 201, 201)
-                                    .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel15)))
-                                .addGroup(CarreterasLayout.createSequentialGroup()
-                                    .addGap(198, 198, 198)
-                                    .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel17)
-                                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(CarreterasLayout.createSequentialGroup()
-                                    .addGap(32, 32, 32)
-                                    .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(j_distancia, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(j_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CarreterasLayout.createSequentialGroup()
-                                    .addGap(13, 13, 13)
-                                    .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(cb_entrada, 0, 122, Short.MAX_VALUE)
-                                        .addComponent(cb_salida, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
+                .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CarreterasLayout.createSequentialGroup()
+                        .addGap(317, 317, 317)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(CarreterasLayout.createSequentialGroup()
+                        .addGap(201, 201, 201)
+                        .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
+                        .addGap(43, 43, 43)
+                        .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(j_distancia, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(j_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton7))))
                 .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CarreterasLayout.createSequentialGroup()
                         .addGap(110, 110, 110)
                         .addComponent(j_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(CarreterasLayout.createSequentialGroup()
-                        .addGap(118, 118, 118)
+                        .addGap(139, 139, 139)
                         .addComponent(jButton8)))
                 .addContainerGap(133, Short.MAX_VALUE))
         );
@@ -208,23 +178,59 @@ public class Lugares extends javax.swing.JFrame {
                     .addComponent(jLabel15)
                     .addComponent(j_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(j_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(cb_entrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CarreterasLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(cb_salida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(CarreterasLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jButton8)))
                 .addGap(51, 51, 51)
-                .addComponent(jButton7)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addGroup(CarreterasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton7)
+                    .addComponent(jButton8))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
+
+        jScrollPane3.setViewportView(j_list);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel16.setText("Lista");
+
+        jButton1.setText("Cargar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JListLayout = new javax.swing.GroupLayout(JList.getContentPane());
+        JList.getContentPane().setLayout(JListLayout);
+        JListLayout.setHorizontalGroup(
+            JListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JListLayout.createSequentialGroup()
+                .addGroup(JListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JListLayout.createSequentialGroup()
+                        .addGap(359, 359, 359)
+                        .addComponent(jButton1))
+                    .addGroup(JListLayout.createSequentialGroup()
+                        .addGap(369, 369, 369)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JListLayout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(353, Short.MAX_VALUE))
+        );
+        JListLayout.setVerticalGroup(
+            JListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JListLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jLabel16)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(jButton1)
+                .addContainerGap(60, Short.MAX_VALUE))
+        );
+
+        Eliminar.setText("jMenu1");
+        jPopupMenu1.add(Eliminar);
+
+        jMenu2.setText("jMenu2");
+        jPopupMenu1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -234,27 +240,6 @@ public class Lugares extends javax.swing.JFrame {
         cd_lugar.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cd_lugarItemStateChanged(evt);
-            }
-        });
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setText("Eliminar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setText("Limpiar");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
             }
         });
 
@@ -281,6 +266,11 @@ public class Lugares extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tb_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb_listMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tb_list);
 
         jButton9.setText("Cargar");
@@ -294,12 +284,6 @@ public class Lugares extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(292, 292, 292)
-                .addComponent(jButton1)
-                .addGap(57, 57, 57)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(jLabel11)
@@ -324,11 +308,7 @@ public class Lugares extends javax.swing.JFrame {
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(75, 75, 75)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addGap(82, 82, 82))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Listar", jPanel2);
@@ -725,19 +705,6 @@ public class Lugares extends javax.swing.JFrame {
     private void cd_lugarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cd_lugarItemStateChanged
 
     }//GEN-LAST:event_cd_lugarItemStateChanged
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        if (tb_list.getSelectedRow() >= 0) {
-            DefaultTableModel modelo = (DefaultTableModel) tb_list.getModel();
-            modelo.removeRow(tb_list.getSelectedRow());
-
-            /*
-             //modificar tabla
-             modelo.getValueAt(0, 3);
-             */
-            tb_list.setModel(modelo);
-        }
-    }//GEN-LAST:event_jButton1MouseClicked
     public void update() {
         DefaultTableModel model = (DefaultTableModel) tb_list.getModel();
 
@@ -756,36 +723,6 @@ public class Lugares extends javax.swing.JFrame {
 
         //Limpiar comboBox
     }
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int pos = tb_list.getSelectedRow();
-        List.remove(pos);
-        update();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        tb_list.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{},
-                new String[]{
-                    "nombre", "direccion", "nivel", "entradas"
-                }
-        ) {
-            Class[] types = new Class[]{
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean[]{
-                false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types[columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit[columnIndex];
-            }
-        });
-    }//GEN-LAST:event_jButton2MouseClicked
-
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         String nombre = "";
         double direccion = 0;
@@ -811,7 +748,7 @@ public class Lugares extends javax.swing.JFrame {
         if (cb_5.isSelected()) {
             categoria = 5;
         }
-       
+
         List.add(new Lugar(nombre, direccion, categoria, "")); // resetear
         tf_nombre.setText("");
         tf_direccion.setText("");
@@ -820,7 +757,7 @@ public class Lugares extends javax.swing.JFrame {
         cb_3.setSelected(false);
         cb_4.setSelected(false);
         cb_5.setSelected(false);
-        
+
 
     }//GEN-LAST:event_jButton3MouseClicked
 
@@ -948,6 +885,8 @@ public class Lugares extends javax.swing.JFrame {
         if (r_5.isSelected()) {
             categoria = 5;
         }
+        j_nombre.setText("");
+        j_direccion.setText("");
         r_1.setSelected(false);
         r_2.setSelected(false);
         r_3.setSelected(false);
@@ -963,14 +902,6 @@ public class Lugares extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton6MouseClicked
 
-    private void cb_entradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_entradaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cb_entradaActionPerformed
-
-    private void cb_salidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_salidaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cb_salidaActionPerformed
-
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         int numero = 0;
         double distancia = 0;
@@ -984,21 +915,40 @@ public class Lugares extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void j_volverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_j_volverMouseClicked
-
+        Carreteras.dispose();
     }//GEN-LAST:event_j_volverMouseClicked
 
-    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-    
-    }//GEN-LAST:event_jButton8MouseClicked
-
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
-    DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel();
         for (Lugar t : List) {
-            model.addTableModelListener((TableModelListener) t);
-            
+            model.addTableModelListener(tb_list);
+
         }
         tb_list.setModel(model);
     }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void tb_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_listMouseClicked
+        if (evt.isMetaDown()) {
+
+            DefaultTableModel dtm = (DefaultTableModel) tb_list.getModel(); 
+            dtm.removeRow(tb_list.getSelectedRow());
+        }
+    }//GEN-LAST:event_tb_listMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+       DefaultListModel model2 = new DefaultListModel();
+        j_list.setModel(model2);
+        for (Lugar q : List) {
+            {
+                j_list.setModel(model2);
+            }
+            
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1037,6 +987,8 @@ public class Lugares extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Carreteras;
+    private javax.swing.JMenu Eliminar;
+    private javax.swing.JDialog JList;
     private javax.swing.JCheckBox c_chino;
     private javax.swing.JCheckBox c_comida;
     private javax.swing.JCheckBox c_italiano;
@@ -1051,11 +1003,8 @@ public class Lugares extends javax.swing.JFrame {
     private javax.swing.JRadioButton cb_3;
     private javax.swing.JRadioButton cb_4;
     private javax.swing.JRadioButton cb_5;
-    private javax.swing.JComboBox cb_entrada;
-    private javax.swing.JComboBox cb_salida;
     private javax.swing.JComboBox<String> cd_lugar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1071,7 +1020,6 @@ public class Lugares extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1083,14 +1031,18 @@ public class Lugares extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField j_direccion;
     private javax.swing.JTextField j_distancia;
+    private javax.swing.JList j_list;
     private javax.swing.JTextField j_nombre;
     private javax.swing.JTextField j_numero;
     private javax.swing.JButton j_volver;
