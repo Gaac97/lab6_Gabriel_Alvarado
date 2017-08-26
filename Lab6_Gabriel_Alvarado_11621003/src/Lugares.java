@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
@@ -41,7 +42,7 @@ public class Lugares extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         j_volver = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        JList = new javax.swing.JDialog();
+        listar = new javax.swing.JDialog();
         jScrollPane3 = new javax.swing.JScrollPane();
         j_list = new javax.swing.JList();
         jLabel16 = new javax.swing.JLabel();
@@ -197,26 +198,26 @@ public class Lugares extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout JListLayout = new javax.swing.GroupLayout(JList.getContentPane());
-        JList.getContentPane().setLayout(JListLayout);
-        JListLayout.setHorizontalGroup(
-            JListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JListLayout.createSequentialGroup()
-                .addGroup(JListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JListLayout.createSequentialGroup()
+        javax.swing.GroupLayout listarLayout = new javax.swing.GroupLayout(listar.getContentPane());
+        listar.getContentPane().setLayout(listarLayout);
+        listarLayout.setHorizontalGroup(
+            listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(listarLayout.createSequentialGroup()
+                .addGroup(listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(listarLayout.createSequentialGroup()
                         .addGap(359, 359, 359)
                         .addComponent(jButton1))
-                    .addGroup(JListLayout.createSequentialGroup()
+                    .addGroup(listarLayout.createSequentialGroup()
                         .addGap(369, 369, 369)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JListLayout.createSequentialGroup()
+                    .addGroup(listarLayout.createSequentialGroup()
                         .addGap(300, 300, 300)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(353, Short.MAX_VALUE))
         );
-        JListLayout.setVerticalGroup(
-            JListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JListLayout.createSequentialGroup()
+        listarLayout.setVerticalGroup(
+            listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(listarLayout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addComponent(jLabel16)
                 .addGap(18, 18, 18)
@@ -928,7 +929,8 @@ public class Lugares extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-        // TODO add your handling code here:
+    listar.setVisible(true);
+    listar.pack();
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void tb_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_listMouseClicked
@@ -944,7 +946,7 @@ public class Lugares extends javax.swing.JFrame {
         j_list.setModel(model2);
         for (Lugar q : List) {
             {
-                j_list.setModel(model2);
+                j_list.setModel((ListModel) q);
             }
             
         }
@@ -988,7 +990,6 @@ public class Lugares extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Carreteras;
     private javax.swing.JMenu Eliminar;
-    private javax.swing.JDialog JList;
     private javax.swing.JCheckBox c_chino;
     private javax.swing.JCheckBox c_comida;
     private javax.swing.JCheckBox c_italiano;
@@ -1046,6 +1047,7 @@ public class Lugares extends javax.swing.JFrame {
     private javax.swing.JTextField j_nombre;
     private javax.swing.JTextField j_numero;
     private javax.swing.JButton j_volver;
+    private javax.swing.JDialog listar;
     private javax.swing.JRadioButton r_1;
     private javax.swing.JRadioButton r_2;
     private javax.swing.JRadioButton r_3;

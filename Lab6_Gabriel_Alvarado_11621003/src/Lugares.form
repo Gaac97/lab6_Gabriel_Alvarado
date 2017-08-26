@@ -116,7 +116,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JDialog" name="JList">
+    <Container class="javax.swing.JDialog" name="listar">
 
       <Layout>
         <DimensionLayout dim="0">
